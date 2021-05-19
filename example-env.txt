@@ -1,0 +1,21 @@
+# READ ME - RENAME THIS TO .env and then change the values of the lines below!
+# ---------------
+
+
+# Discord Bot Information
+
+CLIENT_ID=
+BOT_TOKEN=
+
+
+# Other
+
+PREFIX=
+
+
+# Database - put {USER} in url where DB_USER goes, and {PASS} where DB_PASSWD goes
+
+# Not Needed ==> DB_URL=coolkid-{USER}iscool-{PASS}
+DB_USER=
+DB_PASSWD=
+DB_REGION=
