@@ -1,0 +1,13 @@
+{
+  "name": "example",
+  "description": "example add-on command",
+  "version": "v1.0.0",
+  "scripts": {
+      "main": "index.js"
+  },
+  "author": "Fisher#1337",
+  "license": "ISC",
+  "website": "https://example.com",
+  "dependencies": {
+  }
+}
