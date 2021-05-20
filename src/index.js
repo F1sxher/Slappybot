@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-let defaults = require('./config.js')
+let config = require('./config.js')
 require('dotenv').config();
 
 /* OLD ==> let url; url = process.env.DB_URL; url = url.split('{USER}'); url = `${url[0]}${process.env.DB_USER}${url[1]}`; url = url.split('{PASS}'); url = `${url[0]}${process.env.DB_PASSWD}${url[1]}`
@@ -68,7 +68,7 @@ client.on('message', async (message) => {
 })
 
 client.ws.on('INTERACTION_CREATE', async (interaction) => {
-    require('./resources/events/interaction.js')(interaction)
+    require('./resources/events/interaction.js')(client, interaction)
 })
 
 client.login(`${process.env.BOT_TOKEN}`);
