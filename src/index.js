@@ -3,10 +3,10 @@ const app = express();
 let defaults = require('./config.js')
 require('dotenv').config();
 
-// OLD ==> let url; url = process.env.DB_URL; url = url.split('{USER}'); url = `${url[0]}${process.env.DB_USER}${url[1]}`; url = url.split('{PASS}'); url = `${url[0]}${process.env.DB_PASSWD}${url[1]}`
+/* OLD ==> let url; url = process.env.DB_URL; url = url.split('{USER}'); url = `${url[0]}${process.env.DB_USER}${url[1]}`; url = url.split('{PASS}'); url = `${url[0]}${process.env.DB_PASSWD}${url[1]}`
 
 let dynamo = require('dynamodb');
-dynamo.AWS.config.update({accessKeyId: process.env.DB_USER, secretAccessKey: process.env.DB_PASSWD, region: process.env.DB_REGION});
+dynamo.AWS.config.update({accessKeyId: process.env.DB_USER, secretAccessKey: process.env.DB_PASSWD, region: process.env.DB_REGION});*/
 
 app.get('/', (request, response) => {
      response.sendStatus(200);
