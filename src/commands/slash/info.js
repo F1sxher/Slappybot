@@ -14,7 +14,7 @@ exports.run = async (client, interaction) => {
     const author = require('../../resources/modules/getAuthorFromInteraction.js')(interaction)
     let embed = new Discord.MessageEmbed()
     .setTitle('Bot Information')
-    .setAuthor(author[0], author[1])
+    .setAuthor(author.tag, author.avatar_url)
     .setFooter(client.user.username)
     .setTimestamp(new Date())
     .setColor('67c6fa')
