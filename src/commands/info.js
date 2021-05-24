@@ -4,8 +4,8 @@ exports.config = {
     'name': 'info',
     'description': 'Displays bot information.',
     'usage': 'info',
-    'aliases': ['information', 'stats'],
-    'alias_str': 'information, stats',
+    'aliases': ['information'],
+    'alias_str': 'information',
     'category': 'Miscellaneous'
 }
 
