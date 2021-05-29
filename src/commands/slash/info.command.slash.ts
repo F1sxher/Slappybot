@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+import Discord from 'discord.js';
 
 exports.config = {
     'name': 'info',
@@ -9,8 +9,8 @@ exports.config = {
     'category': 'Miscellaneous'
 }
 
-exports.run = async (client, interaction) => {
-    const uptime = require('../../resources/modules/uptime.js')(client)
+exports.run = async (client: any, interaction: any) => {
+    const uptime = require('../../resources/modules/uptime.module.ts')(client)
     const author = require('../../resources/modules/getAuthorFromInteraction.js')(interaction)
     let embed = new Discord.MessageEmbed()
     .setTitle('Bot Information')
