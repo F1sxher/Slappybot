@@ -1,4 +1,4 @@
-module.exports = function(client){
+module.exports = function(client: any){
     let totalSeconds = Math.floor(client.uptime / 1000);
     let days = Math.floor(totalSeconds / 86400);
     totalSeconds %= 86400;
