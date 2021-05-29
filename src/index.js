@@ -30,7 +30,7 @@ fs.readdir('./src/commands/', async (err, files) => {
         return console.log(chalk.red('An error occured when checking the commands folder for commands to load: ' + err));
     }
     files.forEach(async (file) => {
-        if(!file.endsWith('.js')) return;
+        if(!file.endsWith('.js' && '.ts')) return;
         let commandFile = require(`./commands/${file}`);
         commandlist.push({
             file: commandFile,
@@ -44,7 +44,7 @@ fs.readdir('./src/commands/slash/', async (err, files) => {
         return console.log(chalk.red('An error occured when checking the commands folder for commands to load: ' + err));
     }
     files.forEach(async (file) => {
-        if(!file.endsWith('.js')) return;
+        if(!file.endsWith('.js' && '.ts')) return;
         let commandFile = require(`./commands/slash/${file}`);
         s_commandlist.push({
             file: commandFile,
@@ -59,7 +59,7 @@ client.s_commandlist = s_commandlist;
 client.on('ready', async () => {
   console.log(chalk.white(figlet.textSync('Slappybot', { horizontalLayout: 'full' })));
   console.log(chalk.white(`Bot started! | Guilds: ${client.guilds.cache.size} | Users: ${client.users.cache.size}\n------------------------------------------------------------------------`));
-  client.user.setActivity(`${process.env.PREFIX}help • Slappybot`, { type: 'WATCHING'})
+  client.user.setActivity(`/stats • Slappybot`, { type: 'WATCHING'})
   client.botowner = '756614666066591836'
 });
 
