@@ -1,5 +1,5 @@
 import Discord from 'discord.js';
-const getPlayerCount = require('../resources/modules/getPlayerCount.module.ts');
+const getPlayerCount = require('../../resources/modules/getPlayerCount.module.ts');
 
 exports.config = {
     'name': 'stats',
@@ -10,12 +10,13 @@ exports.config = {
     'category': 'Game'
 }
 
-exports.run = async (client: any, message: any) => {
+exports.run = async (client: any, interaction: any) => {
     let plrCount = await getPlayerCount();
+    const author = require('../../resources/modules/getAuthorFromInteraction.js')(interaction)
 
     let stats: Discord.MessageEmbed = new Discord.MessageEmbed()
     .setTitle('Online Players')
-    .setAuthor(message.author.tag, message.author.displayAvatarURL())
+    .setAuthor(author.tag, author.avatar_url)
     .setFooter(client.user.username)
     .setTimestamp(new Date())
     .setColor('67c6fa')
@@ -23,5 +24,12 @@ exports.run = async (client: any, message: any) => {
     .addField('North America', '[ Placeholder ]')
     .addField('Europe', '[ Placeholder ]')
 
-    return message.lineReplyNoMention(stats)
+    return client.api.interactions(interaction.id, interaction.token).callback.post({
+        data: {
+            type: 4,
+            data: {
+                embeds: [stats]
+            }
+        }
+    })
 }

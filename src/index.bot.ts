@@ -19,6 +19,7 @@ let listener = app.listen(process.env.PORT, () => {
 const Discord = require('discord.js');
 require('discord-reply')
 const client = new Discord.Client();
+require('discord-buttons')(client);
 const chalk = require('chalk');
 const figlet = require('figlet');
 const fs = require('fs');
@@ -64,11 +65,11 @@ client.on('ready', async () => {
 });
 
 client.on('message', async (message: any) => {
-    require('./resources/events/message.js')(client, message)
+    require('./resources/events/message.event.ts')(client, message, process.env)
 })
 
 client.ws.on('INTERACTION_CREATE', async (interaction: any) => {
-    require('./resources/events/interaction.js')(client, interaction)
+    require('./resources/events/interaction.event.ts')(client, interaction, process.env)
 })
 
 client.login(`${process.env.BOT_TOKEN}`);

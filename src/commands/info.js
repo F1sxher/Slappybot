@@ -10,7 +10,7 @@ exports.config = {
 }
 
 exports.run = async (client, message) => {
-    const uptime = require('../resources/modules/uptime.js')(client)
+    const uptime = require('../resources/modules/uptime.module.ts')(client)
     let embed = new Discord.MessageEmbed()
     .setTitle('Bot Information')
     .setAuthor(message.author.tag, message.author.displayAvatarURL())

@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-let fetch = require('node-fetch')
+import Discord from 'discord.js';
+const getPlayerData = require('../resources/modules/getPlayerData.module.ts');
 
 exports.config = {
     'name': 'profile',
@@ -10,26 +10,22 @@ exports.config = {
     'category': 'Miscellaneous'
 }
 
-exports.run = async (client, message, args) => {
-    let headers = {
-        "x-api-key": process.env.API_KEY,
-        "PlayerId": [args[0]]
-    }
-    fetch(process.env.API_URI, { method: 'GET', headers: headers})
-    .then((res) => {
-       return res.json()
-    })
-    .then((json) => {
-    let plrData = json;
+exports.run = async (client: any, message: any, args: any[]) => {
+    let id: string;
+    if(!args[0]){
+        return message.lineReplyNoMention('You need to provide an ID!')
+    }else id = args[0];
+
+    let plrData: any = await getPlayerData.via_steam(id);
 
     if(plrData.error){
         return message.lineReplyNoMention(`An error has occured: ${plrData.error}`)
-    }
-    plrData = plrData.playerData[0]; 
-    let wlRatio = (plrData.Wins.S / plrData.Losses.N);
+    }else plrData = plrData.playerData[0]
     
-    let embed = new Discord.MessageEmbed()
-    .setTitle('Bot Information')
+    let wlRatio: number = (plrData.Wins.S / plrData.Losses.N);
+    
+    let embed: Discord.MessageEmbed = new Discord.MessageEmbed()
+    .setTitle('Game Profile')
     .setAuthor(message.author.tag, message.author.displayAvatarURL())
     .setFooter(client.user.username)
     .setTimestamp(new Date())
@@ -41,8 +37,7 @@ exports.run = async (client, message, args) => {
     .addField('Lifetime Coins', plrData.LifetimeCoins.S)
     .addField('Wins', plrData.Wins.N, true)
     .addField('Losses', plrData.Losses.N, true)
-    .addField('Win/Lose Ratio',wlRatio , true)
+    .addField('Win/Lose Ratio', wlRatio , true)
 
     message.lineReplyNoMention(embed)
-    });
 }

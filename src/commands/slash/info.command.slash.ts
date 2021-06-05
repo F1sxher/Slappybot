@@ -12,7 +12,7 @@ exports.config = {
 exports.run = async (client: any, interaction: any) => {
     const uptime = require('../../resources/modules/uptime.module.ts')(client)
     const author = require('../../resources/modules/getAuthorFromInteraction.js')(interaction)
-    let embed = new Discord.MessageEmbed()
+    let embed: Discord.MessageEmbed = new Discord.MessageEmbed()
     .setTitle('Bot Information')
     .setAuthor(author.tag, author.avatar_url)
     .setFooter(client.user.username)
