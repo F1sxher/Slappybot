@@ -23,10 +23,8 @@ $ npm run start
 ```
 
 ## Disclaimer
-We do not provide support for self-hosting! This package has been made open-source to aid with contributions, not so you can run your own Slappybot for private use. If something breaks or there's a vulnerability in a version you use, then you're on your own.
+We do not provide support for self-hosting! This package has been made open-source to aid with contributions, not so you can run your own Slappybot for private use.
 
-For this reason, we recommend using the official hosted bot at https://slappyball.com which is given regular updates.
-
-Also, keep in mind that we use the AGPL-3.0 License, which means you're required to keep your local version open-source and state all changes that you have made to it.
+We recommend using the official hosted bot at https://slappyball.com which is given regular updates.
 
 **Some commands MAY NOT WORK - Verification does not work with the open-source version...refer to the official hosted bot.**

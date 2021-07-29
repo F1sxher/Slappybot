@@ -3,8 +3,7 @@
   "version": "v0.0.1",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "dev": "nodemon src/index.bot.ts"
+    "start": "nodemon src/index.bot.ts"
   },
   "repository": {
     "type": "git",
@@ -18,9 +17,7 @@
   "homepage": "https://github.com/F1sxher/",
   "dependencies": {
     "chalk": "^4.1.0",
-    "discord-buttons": "^2.4.1",
-    "discord-reply": "^0.1.2",
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.0.0-dev.d310e4f.1627560163",
     "discordjs-prompter": "^2.0.4",
     "dotenv": "^8.2.0",
     "dynamodb": "^1.3.0",

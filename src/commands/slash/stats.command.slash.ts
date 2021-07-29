@@ -12,7 +12,7 @@ exports.config = {
 
 exports.run = async (client: any, interaction: any) => {
     let plrCount = await getPlayerCount();
-    const author = require('../../resources/modules/getAuthorFromInteraction.js')(interaction)
+    const author = require('../../resources/modules/getAuthorFromInteraction.module.ts')(interaction)
 
     let stats: Discord.MessageEmbed = new Discord.MessageEmbed()
     .setTitle('Online Players')
